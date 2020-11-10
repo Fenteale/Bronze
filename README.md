@@ -1,1 +1,1 @@
-# Bronze
+# Bronze is dumb
