@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://dialog.gd" type="Script" id=1]
+
+[node name="diag" type="Node2D"]
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color( 0, 0, 0, 1 )
+polygon = PoolVector2Array( 0, 120, 256, 120, 256, 144, 0, 144 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Polygon2D"]
+margin_top = 120.0
+margin_right = 256.0
+margin_bottom = 144.0
+text = "Fat Frog"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

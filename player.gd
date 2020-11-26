@@ -14,11 +14,15 @@ enum {
 }
  
 const SPEED = 48
-const SPEEDDIAG = sqrt((SPEED*SPEED)/2)
  
 var motion = Vector2()
  
 func _physics_process(delta):
+	
+	if Input.is_action_just_pressed("ui_accept"):
+		var scene = load("res://dialog.tscn")
+		var diag = scene.instance()
+		owner.get_node("CanvasLayer").add_child(diag)
  
 	var moveState = NO_MOVEMENT
 	if Input.is_action_pressed("ui_up"):
@@ -44,32 +48,36 @@ func _physics_process(delta):
 
 	match moveState:
 		MOVE_UP:
-			motion.y = -SPEED
+			motion.y = -1
 			motion.x = 0
 		MOVE_DOWN:
-			motion.y = SPEED
+			motion.y = 1
 			motion.x = 0
 		MOVE_LEFT:
 			motion.y = 0
-			motion.x = -SPEED
+			motion.x = -1
 		MOVE_RIGHT:
 			motion.y = 0
-			motion.x = SPEED
+			motion.x = 1
 		MOVE_UPLEFT:
-			motion.y = -SPEEDDIAG
-			motion.x = -SPEEDDIAG
+			motion.y = -1
+			motion.x = -1
 		MOVE_UPRIGHT:
-			motion.y = -SPEEDDIAG
-			motion.x = SPEEDDIAG
+			motion.y = -1
+			motion.x = 1
 		MOVE_DOWNLEFT:
-			motion.y = SPEEDDIAG
-			motion.x = -SPEEDDIAG
+			motion.y = 1
+			motion.x = -1
 		MOVE_DOWNRIGHT:
-			motion.y = SPEEDDIAG
-			motion.x = SPEEDDIAG
+			motion.y = 1
+			motion.x = 1
 		NO_MOVEMENT:
 			motion.y = 0
 			motion.x = 0
- 
+	
+	motion = motion.normalized() * SPEED 
+
 	move_and_slide(motion)
+	
+	
  
