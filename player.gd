@@ -14,15 +14,15 @@ enum {
 }
  
 const SPEED = 48
+
+var inDialog = false
  
 var motion = Vector2()
+var diag
  
 func _physics_process(delta):
-	
-	if Input.is_action_just_pressed("ui_accept"):
-		var scene = load("res://dialog.tscn")
-		var diag = scene.instance()
-		owner.get_node("CanvasLayer").add_child(diag)
+
+	dealWithDialog()	
  
 	var moveState = NO_MOVEMENT
 	if Input.is_action_pressed("ui_up"):
@@ -45,6 +45,9 @@ func _physics_process(delta):
 			moveState = MOVE_DOWNRIGHT
 		else:
 			moveState = MOVE_RIGHT
+			
+	if inDialog:
+		moveState = NO_MOVEMENT
 
 	match moveState:
 		MOVE_UP:
@@ -79,5 +82,15 @@ func _physics_process(delta):
 
 	move_and_slide(motion)
 	
-	
+func dealWithDialog():
+	if Input.is_action_just_pressed("ui_accept"):
+		if not inDialog:
+			var scene = load("res://dialog.tscn")
+			diag = scene.instance()
+			owner.get_node("CanvasLayer").add_child(diag)
+			inDialog = true
+		else:
+			if diag.textNext():
+				diag.queue_free()
+				inDialog = false
  
