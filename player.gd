@@ -19,10 +19,13 @@ var inDialog = false
  
 var motion = Vector2()
 var diag
+var diagText = ""
+var npcsInRange = 0
  
 func _physics_process(delta):
 
-	dealWithDialog()	
+	if npcsInRange>0:
+		dealWithDialog()
  
 	var moveState = NO_MOVEMENT
 	if Input.is_action_pressed("ui_up"):
@@ -89,7 +92,7 @@ func dealWithDialog():
 			diag = scene.instance()
 			#next line, we should set the text to the text associated with
 			#whatever npc/thing we are interacting with
-			diag.setText("Meow meow")
+			diag.setText(diagText)
 			owner.get_node("CanvasLayer").add_child(diag)
 			inDialog = true
 		else:
