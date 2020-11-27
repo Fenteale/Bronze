@@ -87,10 +87,12 @@ func dealWithDialog():
 		if not inDialog:
 			var scene = load("res://dialog.tscn")
 			diag = scene.instance()
+			#next line, we should set the text to the text associated with
+			#whatever npc/thing we are interacting with
+			diag.setText("Meow meow")
 			owner.get_node("CanvasLayer").add_child(diag)
 			inDialog = true
 		else:
 			if diag.textNext():
-				diag.queue_free()
 				inDialog = false
  
