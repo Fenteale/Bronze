@@ -14,6 +14,8 @@ enum {
 }
  
 const SPEED = 48
+const ZOOM_AMT = 0.6	#How much to zoom in
+const ZOOM_DUR = 0.7		#How long it takes for it to finish zooming.
 
 var inDialog = false
  
@@ -21,6 +23,9 @@ var motion = Vector2()
 var diag
 var diagText = ""
 var npcsInRange = 0
+
+onready var ZoomTween = get_node("Camera2D/ZoomTween")
+onready var PlayerCamera = get_node("Camera2D")
  
 func _physics_process(delta):
 
@@ -88,6 +93,8 @@ func _physics_process(delta):
 func dealWithDialog():
 	if Input.is_action_just_pressed("ui_accept"):
 		if not inDialog:
+			ZoomTween.interpolate_property(PlayerCamera, "zoom", PlayerCamera.zoom, Vector2(ZOOM_AMT, ZOOM_AMT), ZOOM_DUR, Tween.TRANS_SINE, Tween.EASE_OUT)
+			ZoomTween.start()
 			var scene = load("res://dialog.tscn")
 			diag = scene.instance()
 			#next line, we should set the text to the text associated with
@@ -97,5 +104,7 @@ func dealWithDialog():
 			inDialog = true
 		else:
 			if diag.textNext():
+				ZoomTween.interpolate_property(PlayerCamera, "zoom", PlayerCamera.zoom, Vector2(1, 1), ZOOM_DUR, Tween.TRANS_SINE, Tween.EASE_OUT)
+				ZoomTween.start()
 				inDialog = false
  
