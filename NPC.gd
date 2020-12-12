@@ -2,7 +2,7 @@ extends Node2D
 
 
 # Declare member variables here. Examples:
-export var npcText = "Edit Me."
+export var npcText = ["Edit Me."]
 export var npcType = 0
 
 

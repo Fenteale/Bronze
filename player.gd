@@ -21,7 +21,7 @@ var inDialog = false
  
 var motion = Vector2()
 var diag
-var diagText = ""
+var diagText = [""]
 var npcsInRange = 0
 
 onready var ZoomTween = get_node("Camera2D/ZoomTween")

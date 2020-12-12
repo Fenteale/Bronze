@@ -127,9 +127,12 @@ margin_bottom = 40.0
 
 [node name="NPC2" parent="." instance=ExtResource( 6 )]
 position = Vector2( 600, 320 )
-npcText = "Hello, I am large."
+npcText = [ "This is the first line.", "Here comes the second!" ]
 
 [node name="NPC" parent="." instance=ExtResource( 6 )]
 position = Vector2( 520, 320 )
-npcText = "HATE YOU!!!"
 npcType = 1
+
+[node name="NPC3" parent="." instance=ExtResource( 6 )]
+position = Vector2( 548.861, 239.93 )
+npcText = [ "According to all known laws of aviation,", "there is no way a bee should be able to fly.", "Its wings are too small to get its fat little body off the ground.", "The bee, of course, flies anyway", "because bees don't care what humans think is impossible." ]

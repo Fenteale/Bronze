@@ -6,7 +6,7 @@ extends Node2D
 const BOXHEIGHT = 24
 const POPUPSPEED = 200
 const GOAWAYSPEED = 400
-const TEXTSCROLLSPEED = 0.1
+const TEXTSCROLLSPEED = 0.04
 const CURSORBLINKSPEED = 0.8
 
 onready var topBox = get_node("topBar")
@@ -18,6 +18,9 @@ var elTime = 0
 var elTimeText = 0
 var origPosTop
 var origPosBot
+
+var textArray = []
+var textArrayPos = 0
 
 var originalLength
 # Called when the node enters the scene tree for the first time.
@@ -71,9 +74,10 @@ func setText(diagToShow) :
 	#Maybe create an array that holds each dialog screen.
 	#Eg: diagToShow[1] = "This is a really long sentence." <- This will be shown on the first screen
 	# diagToShow[2] = "This is the last sentence I have to say." <- This will be shown on the second screen.
+	textArray = diagToShow
 	var rtl = get_node("topBar/RichTextLabel")
-	originalLength = diagToShow.length()
-	rtl.text = diagToShow + ":" # supposed to be: + "█" but that doesnt work with this text.
+	originalLength = diagToShow[0].length()
+	rtl.text = diagToShow[0] + ":" # supposed to be: + "█" but that doesnt work with this text.
 
 func textNext():
 	#Eventually, this should decide to display the
@@ -81,9 +85,17 @@ func textNext():
 	
 	#Eg: Once the first screen is shown, set the text to the second screen, return false
 	#If there are no more screens to show, return true.
-	print_debug("Meow")
-	die = true
-	elTime = 0
-	return true
+	if textArrayPos >= textArray.size() - 1:
+		die = true
+		elTime = 0
+		return true
+	else:
+		textArrayPos += 1
+		textObject.visible_characters = 0
+		var rtl = get_node("topBar/RichTextLabel")
+		originalLength = textArray[textArrayPos].length()
+		rtl.text = textArray[textArrayPos] + ":" # supposed to be: + "█" but that doesnt work with this text.
+		elTimeText = 0
+		return false
 	
 
