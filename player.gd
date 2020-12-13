@@ -26,6 +26,7 @@ var npcsInRange = 0
 
 onready var ZoomTween = get_node("Camera2D/ZoomTween")
 onready var PlayerCamera = get_node("Camera2D")
+onready var diagScene = load("res://dialog.tscn")
  
 func _physics_process(delta):
 
@@ -95,8 +96,7 @@ func dealWithDialog():
 		if not inDialog:
 			ZoomTween.interpolate_property(PlayerCamera, "zoom", PlayerCamera.zoom, Vector2(ZOOM_AMT, ZOOM_AMT), ZOOM_DUR, Tween.TRANS_SINE, Tween.EASE_OUT)
 			ZoomTween.start()
-			var scene = load("res://dialog.tscn")
-			diag = scene.instance()
+			diag = diagScene.instance()
 			#next line, we should set the text to the text associated with
 			#whatever npc/thing we are interacting with
 			diag.setText(diagText)
