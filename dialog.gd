@@ -77,7 +77,7 @@ func setText(diagToShow) :
 	textArray = diagToShow
 	var rtl = get_node("topBar/RichTextLabel")
 	originalLength = diagToShow[0].length()
-	rtl.text = diagToShow[0] + ":" # supposed to be: + "█" but that doesnt work with this text.
+	rtl.text = diagToShow[0] + "█" # supposed to be: + "█" but that doesnt work with this text.
 
 func textNext():
 	#Eventually, this should decide to display the
@@ -94,7 +94,7 @@ func textNext():
 		textObject.visible_characters = 0
 		var rtl = get_node("topBar/RichTextLabel")
 		originalLength = textArray[textArrayPos].length()
-		rtl.text = textArray[textArrayPos] + ":" # supposed to be: + "█" but that doesnt work with this text.
+		rtl.text = textArray[textArrayPos] + "█" # supposed to be: + "█" but that doesnt work with this text.
 		elTimeText = 0
 		return false
 	

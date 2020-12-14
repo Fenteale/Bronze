@@ -26,7 +26,7 @@ var npcsInRange = 0
 
 onready var ZoomTween = get_node("Camera2D/ZoomTween")
 onready var PlayerCamera = get_node("Camera2D")
-onready var diagScene = load("res://dialog.tscn")
+onready var diagScene = preload("res://dialog.tscn")
  
 func _physics_process(delta):
 

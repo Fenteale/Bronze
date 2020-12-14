@@ -16,7 +16,7 @@ margin_top = 120.0
 margin_right = 256.0
 margin_bottom = 144.0
 theme = ExtResource( 2 )
-text = "Fat Frog"
+custom_effects = [ null, null, null, null ]
 __meta__ = {
 "_edit_use_anchors_": false
 }
