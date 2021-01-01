@@ -13,7 +13,7 @@ enum {
 	MOVE_DOWNLEFT
 }
  
-const SPEED = 48
+const SPEED = 92
 const ZOOM_AMT = 0.6	#How much to zoom in
 const ZOOM_DUR = 0.7		#How long it takes for it to finish zooming.
 
@@ -27,6 +27,7 @@ var npcsInRange = 0
 onready var ZoomTween = get_node("Camera2D/ZoomTween")
 onready var PlayerCamera = get_node("Camera2D")
 onready var diagScene = preload("res://dialog.tscn")
+onready var anim = get_node("AnimatedSprite")
  
 func _physics_process(delta):
 
@@ -36,24 +37,33 @@ func _physics_process(delta):
 	var moveState = NO_MOVEMENT
 	if Input.is_action_pressed("ui_up"):
 		moveState = MOVE_UP
+		anim.play("up")
  
 	if Input.is_action_pressed("ui_down"):
 		moveState = MOVE_DOWN
+		anim.play("down")
+
 	if Input.is_action_pressed("ui_left"):
 		if Input.is_action_pressed("ui_up"):
 			moveState = MOVE_UPLEFT
+			anim.play("up_left")
 		elif Input.is_action_pressed("ui_down"):
 			moveState = MOVE_DOWNLEFT
+			anim.play("down_left")
 		else:
 			moveState = MOVE_LEFT
+			anim.play("left")
  
 	if Input.is_action_pressed("ui_right"):
 		if Input.is_action_pressed("ui_up"):
 			moveState = MOVE_UPRIGHT
+			anim.play("up_right")
 		elif Input.is_action_pressed("ui_down"):
 			moveState = MOVE_DOWNRIGHT
+			anim.play("down_right")
 		else:
 			moveState = MOVE_RIGHT
+			anim.play("right")
 			
 	if inDialog:
 		moveState = NO_MOVEMENT

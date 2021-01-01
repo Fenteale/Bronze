@@ -13,7 +13,7 @@ polygon = PoolVector2Array( 0, 120, 256, 120, 256, 144, 0, 144 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="topBar"]
 margin_top = 120.0
-margin_right = 256.0
+margin_right = 768.0
 margin_bottom = 144.0
 theme = ExtResource( 2 )
 custom_effects = [ null, null, null, null ]
@@ -22,6 +22,7 @@ __meta__ = {
 }
 
 [node name="botBar" type="Polygon2D" parent="."]
-position = Vector2( 0, 96 )
+position = Vector2( 0, 384 )
+scale = Vector2( 3, 1 )
 color = Color( 0, 0, 0, 1 )
-polygon = PoolVector2Array( 256, 48, 0, 48, 0, 72, 256, 72 )
+polygon = PoolVector2Array( 256, 48, 0, 48, 0, 72, 130.667, 72, 256, 72 )
