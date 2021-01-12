@@ -6,22 +6,23 @@
 [node name="diag" type="Node2D"]
 script = ExtResource( 1 )
 
-[node name="topBar" type="Polygon2D" parent="."]
-position = Vector2( 0, -144 )
-color = Color( 0, 0, 0, 1 )
-polygon = PoolVector2Array( 0, 120, 256, 120, 256, 144, 0, 144 )
-
-[node name="RichTextLabel" type="RichTextLabel" parent="topBar"]
-margin_top = 120.0
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_top = -48.0
 margin_right = 768.0
-margin_bottom = 144.0
 theme = ExtResource( 2 )
 custom_effects = [ null, null, null, null ]
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="topBar" type="Polygon2D" parent="."]
+visible = false
+position = Vector2( 0, -144 )
+color = Color( 0, 0, 0, 1 )
+polygon = PoolVector2Array( 0, 104, 256, 104, 256, 144, 0, 144 )
+
 [node name="botBar" type="Polygon2D" parent="."]
+visible = false
 position = Vector2( 0, 384 )
 scale = Vector2( 3, 1 )
 color = Color( 0, 0, 0, 1 )
