@@ -17,4 +17,37 @@ texture = ExtResource( 1 )
 centered = false
 offset = Vector2( 0, -2 )
 
+[node name="Slot0" type="Sprite" parent="bronze_sprite_hud"]
+position = Vector2( 52, -28 )
+
+[node name="Slot1" type="Sprite" parent="bronze_sprite_hud"]
+position = Vector2( 119, -28 )
+
+[node name="Slot2" type="Sprite" parent="bronze_sprite_hud"]
+position = Vector2( 185, -28 )
+
+[node name="Slot3" type="Sprite" parent="bronze_sprite_hud"]
+position = Vector2( 252, -28 )
+
+[node name="Slot4" type="Sprite" parent="bronze_sprite_hud"]
+position = Vector2( 318, -28 )
+
+[node name="Slot5" type="Sprite" parent="bronze_sprite_hud"]
+position = Vector2( 385, -28 )
+
+[node name="Slot6" type="Sprite" parent="bronze_sprite_hud"]
+position = Vector2( 451, -28 )
+
+[node name="Slot7" type="Sprite" parent="bronze_sprite_hud"]
+position = Vector2( 517, -28 )
+
+[node name="Slot8" type="Sprite" parent="bronze_sprite_hud"]
+position = Vector2( 583, -28 )
+
+[node name="Slot9" type="Sprite" parent="bronze_sprite_hud"]
+position = Vector2( 649, -28 )
+
+[node name="Slot10" type="Sprite" parent="bronze_sprite_hud"]
+position = Vector2( 715, -28 )
+
 [node name="Slide" type="Tween" parent="."]

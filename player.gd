@@ -21,6 +21,7 @@ var inDialog = false
  
 var motion = Vector2()
 var diag
+var queuedItem
 var diagText = [""]
 var npcsInRange = 0
 
@@ -110,11 +111,19 @@ func dealWithDialog():
 			#next line, we should set the text to the text associated with
 			#whatever npc/thing we are interacting with
 			diag.setText(diagText)
-			owner.get_node("CanvasLayer").add_child(diag)
+			var cl = owner.get_node("CanvasLayer")
+			cl.add_child(diag)
+			cl.get_node("inventory").showExt()
+			cl.get_node("inventory").setCapture(false)
 			inDialog = true
 		else:
 			if diag.textNext():
 				ZoomTween.interpolate_property(PlayerCamera, "zoom", PlayerCamera.zoom, Vector2(1, 1), ZOOM_DUR, Tween.TRANS_SINE, Tween.EASE_OUT)
 				ZoomTween.start()
 				inDialog = false
+				var inv = owner.get_node("CanvasLayer/inventory")
+				if queuedItem:
+					inv.addItem(get_node(queuedItem))
+				inv.hideExt()
+				inv.setCapture(true)
  

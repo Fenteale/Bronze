@@ -7,7 +7,7 @@
 script = ExtResource( 1 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-margin_top = -48.0
+margin_top = -56.0
 margin_right = 768.0
 theme = ExtResource( 2 )
 custom_effects = [ null, null, null, null ]
@@ -15,15 +15,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="topBar" type="Polygon2D" parent="."]
-visible = false
-position = Vector2( 0, -144 )
-color = Color( 0, 0, 0, 1 )
-polygon = PoolVector2Array( 0, 104, 256, 104, 256, 144, 0, 144 )
-
-[node name="botBar" type="Polygon2D" parent="."]
-visible = false
-position = Vector2( 0, 384 )
-scale = Vector2( 3, 1 )
-color = Color( 0, 0, 0, 1 )
-polygon = PoolVector2Array( 256, 48, 0, 48, 0, 72, 130.667, 72, 256, 72 )
+[node name="Slide" type="Tween" parent="."]
+[connection signal="tween_all_completed" from="Slide" to="." method="_on_Slide_tween_all_completed"]
+[connection signal="tween_completed" from="Slide" to="." method="_on_Slide_tween_completed"]
