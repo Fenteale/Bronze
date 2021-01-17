@@ -79,7 +79,8 @@ tile_data = PoolIntArray( 0, 2, 0, 1, 2, 0, 2, 2, 0, 3, 2, 0, 4, 2, 0, 5, 2, 0, 
 
 [node name="NPC2" parent="." instance=ExtResource( 6 )]
 position = Vector2( 630.759, 337.678 )
-npcText = [ "This is the first line.", "Here comes the second!" ]
+npcText = [ "[wave]This[/wave] is the first line.", "Here comes the second!" ]
+npcType = 1
 
 [node name="NPC" parent="." instance=ExtResource( 6 )]
 position = Vector2( 431.535, 317.351 )

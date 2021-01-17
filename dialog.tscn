@@ -10,6 +10,7 @@ script = ExtResource( 1 )
 margin_top = -56.0
 margin_right = 768.0
 theme = ExtResource( 2 )
+bbcode_enabled = true
 custom_effects = [ null, null, null, null ]
 __meta__ = {
 "_edit_use_anchors_": false

@@ -40,7 +40,7 @@ func _process(delta):
 		if textCurrPos < originalLength:
 			if elTimeText >= TEXTSCROLLSPEED:
 				textCurrPos += 1
-				topBox.text = currText.substr(0, textCurrPos) + "█"
+				topBox.bbcode_text = currText.substr(0, textCurrPos) + "█"
 				elTimeText = 0;
 			else:
 				elTimeText += delta
@@ -61,7 +61,7 @@ func setText(diagToShow) :
 	originalLength = diagToShow[0].length()
 	rtl.visible_characters = originalLength
 	currText = diagToShow[0] + "█"
-	rtl.text = "█"
+	rtl.bbcode_text = "█"
 	
 
 func textNext():
