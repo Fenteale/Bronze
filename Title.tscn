@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Concept_Art/bronze_demo_art.png" type="Texture" id=1]
+[ext_resource path="res://Button.tscn" type="PackedScene" id=2]
+
+[node name="Title" type="Node2D"]
+
+[node name="bronze_demo_art" type="Sprite" parent="."]
+position = Vector2( 824, 216 )
+scale = Vector2( 3.84979, 2.35 )
+texture = ExtResource( 1 )
+
+[node name="Button2" parent="." instance=ExtResource( 2 )]
+margin_left = 560.0
+margin_top = 328.0
+margin_right = 683.0
+margin_bottom = 352.0
+focus_neighbour_bottom = NodePath("../Button")
+text = "Start"
+reference_path = "res://World.tscn"
+start_focused = true
+
+[node name="Button" parent="." instance=ExtResource( 2 )]
+margin_left = 560.0
+margin_top = 368.0
+margin_right = 680.0
+margin_bottom = 390.0
+focus_neighbour_top = NodePath("../Button2")
+text = "Exit"
